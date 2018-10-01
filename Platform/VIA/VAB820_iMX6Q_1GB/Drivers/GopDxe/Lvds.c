@@ -54,6 +54,8 @@ InitLvds (
   LdbCtrlReg.ch1_mode = 1;
   LdbCtrlReg.di0_vs_polarity = 1;
   LdbCtrlReg.di1_vs_polarity = 1;
+  LdbCtrlReg.data_width_ch0 = 1;
+  LdbCtrlReg.data_width_ch1 = 1;
   MmioWrite32 ((UINT32)pLvdsDisplayContext->MmioBasePtr + LDB_CTRL, LdbCtrlReg.Reg);
 
   // No EDID available

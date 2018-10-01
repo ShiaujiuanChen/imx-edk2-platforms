@@ -251,6 +251,7 @@ ConfigureDisplayControllerChannel (
   switch (DisplayInterface) {
   // PixelFormat RGB24
   case HdmiDisplay:
+  case Lvds0Display:
     Mask0 = 0xFF;
     Mask1 = 0xFF;
     Mask2 = 0xFF;
@@ -259,7 +260,7 @@ ConfigureDisplayControllerChannel (
     Offset2 = 23;
     break;
   // PixelFormat RGB666
-  case Lvds0Display:
+//  case Lvds0Display:
   case Lvds1Display:
     Mask0 = 0xFC;
     Mask1 = 0xFC;
