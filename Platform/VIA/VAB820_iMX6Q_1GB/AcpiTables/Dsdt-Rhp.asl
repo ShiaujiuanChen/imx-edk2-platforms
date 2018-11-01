@@ -22,9 +22,12 @@ Device (RHPX)
 
   Name (_CRS, ResourceTemplate() {
     // Index 0
-    I2CSerialBus (0xFFFF,, 0,, "\\_SB.I2C3",,,,)
+    I2CSerialBus (0xFFFF,, 0,, "\\_SB.I2C1",,,,)
 
     // Index 1
+    I2CSerialBus (0xFFFF,, 0,, "\\_SB.I2C3",,,,)
+
+    // Index 2
     SPISerialBus (            // SCLK - 
                               // MOSI - 
                               // MISO - 
@@ -44,7 +47,7 @@ Device (RHPX)
                               //   offset of resource descriptor
     )                         // Vendor Data
 
-    // Index 2
+    // Index 3
     SPISerialBus (            // SCLK - 
                               // MOSI - 
                               // MISO - 
@@ -64,7 +67,7 @@ Device (RHPX)
                               //   offset of resource descriptor
     )                         // Vendor Data
 
-    // Index 3
+    // Index 4
     SPISerialBus (            // SCLK - 
                               // MOSI - 
                               // MISO - 
@@ -133,17 +136,20 @@ Device (RHPX)
   Name (_DSD, Package() {
     ToUUID ("daffd814-6eba-4d8c-8a91-bc9bbf4aa301"),
     Package() {
+      // I2C1
+      Package (2) { "bus-I2C-I2C1", Package() { 0 } },
+
       // I2C3
-      Package (2) { "bus-I2C-I2C3", Package() { 0 } },
+      Package (2) { "bus-I2C-I2C3", Package() { 1 } },
 
       // SPI 1
-      Package (2) { "bus-SPI-SPI1", Package() { 1 } }, // Index 1
+      Package (2) { "bus-SPI-SPI1", Package() { 2 } }, // Index 2
       Package (2) { "SPI1-MinClockInHz", 115 },        // 115 Hz
       Package (2) { "SPI1-MaxClockInHz", 20000000 },   // 20 MHz
       // Data bit length
       Package (2) { "SPI1-SupportedDataBitLengths", Package() { 8, 16, 32 } },
       // SPI 3
-      Package (2) { "bus-SPI-SPI3", Package() { 2, 3 } }, // Index 2, 3
+      Package (2) { "bus-SPI-SPI3", Package() { 3, 4 } }, // Index 3, 4
       Package (2) { "SPI3-MinClockInHz", 115 },        // 115 Hz
       Package (2) { "SPI3-MaxClockInHz", 20000000 },   // 20 MHz
       // Data bit length
