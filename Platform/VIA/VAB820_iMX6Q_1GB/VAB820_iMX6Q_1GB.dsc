@@ -163,4 +163,4 @@ giMXPlatformTokenSpaceGuid.PcdSerialRegisterBase|0x021E8000   # UART2
 giMXPlatformTokenSpaceGuid.PcdKdUartInstance|2                # UART2
 
 [PcdsFeatureFlag.common]
-giMX6TokenSpaceGuid.PcdLvdsEnable|FALSE
+giMX6TokenSpaceGuid.PcdLvdsEnable|TRUE
