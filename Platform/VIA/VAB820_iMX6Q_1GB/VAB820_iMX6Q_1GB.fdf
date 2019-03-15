@@ -104,7 +104,7 @@ READ_LOCK_STATUS   = TRUE
     #
     INF $(BOARD_DIR)/Drivers/GraphicsOutputDxe/GraphicsOutputDxe.inf
   !else
-    INF Silicon/NXP/iMX6Pkg/Drivers/GopDxe/GopDxe.inf
+    INF $(BOARD_DIR)/Drivers/GopDxe/GopDxe.inf
   !endif
 !endif
 

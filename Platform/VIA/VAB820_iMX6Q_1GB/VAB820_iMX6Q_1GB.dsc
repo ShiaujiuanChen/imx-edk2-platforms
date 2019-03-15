@@ -62,7 +62,7 @@
     #
     $(BOARD_DIR)/Drivers/GraphicsOutputDxe/GraphicsOutputDxe.inf
   !else
-    Silicon/NXP/iMX6Pkg/Drivers/GopDxe/GopDxe.inf
+    $(BOARD_DIR)/Drivers/GopDxe/GopDxe.inf
   !endif
 !endif
 
