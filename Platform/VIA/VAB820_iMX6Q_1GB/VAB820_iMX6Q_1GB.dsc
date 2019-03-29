@@ -49,6 +49,7 @@
 
 [LibraryClasses.common]
   ArmPlatformLib|$(BOARD_DIR)/Library/iMX6BoardLib/iMX6BoardLib.inf
+  iMX6AudioLib|$(BOARD_DIR)/Library/iMX6AudioLib/iMX6AudioLib.inf
 
 [Components.common]
   # Display Support
