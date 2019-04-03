@@ -188,14 +188,14 @@ SetupAudio (
 
   // Enable output on CCM_CLKO1, select pll3_sw_clk/2 as the source.
   CcosrReg = (IMX_CCM_CCOSR_REG) MmioRead32 ((UINTN)&pCcmReg->CCOSR);
-  CcosrReg.CLKO1_SEL = 0;
-  CcosrReg.CLKO1_DIV = 0;
+  CcosrReg.CLKO1_SEL = 0xb;
+  CcosrReg.CLKO1_DIV = 7;
   CcosrReg.CLKO1_EN = 1;
 
   MmioWrite32 ((UINTN)&pCcmReg->CCOSR, CcosrReg.AsUint32);
 
-    // Set up Audmux where Ssi port = 7 and external port = 4
-    InitializeAudmux (AUDMUX_PORT7, AUDMUX_PORT4);
+  // Set up Audmux where Ssi port = 7 and external port = 4
+  InitializeAudmux (AUDMUX_PORT7, AUDMUX_PORT4);
 }
 
 /**
