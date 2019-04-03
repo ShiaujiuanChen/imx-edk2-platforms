@@ -30,10 +30,6 @@ Device (ENET)
 
     // ENET MAC 0 1588 Timer interrupt
     Interrupt (ResourceConsumer, Level, ActiveHigh, Exclusive) { 151 }
-
-    // Errata ERR006687: workaround for GPIO interrupt to connect Enet interrupt
-    // to the GPC
-    GpioInt (Level, ActiveHigh, Shared, PullDefault, 0, "\\_SB.GPIO",) { 6 }
   })
 
   Name (MAC, Buffer (6) {})
