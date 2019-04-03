@@ -36,16 +36,16 @@ InitializeAudmux (
   ASSERT (ExternalPortNumber < AUDMUX_PORT_MAX);
 
   pAudmuxReg = (AUDMUX_REGISTERS *) AUDMUX_BASE;
-  ExternalPdcr = (AUDMUX_PDCR_REG) MmioRead32 ((UINTN)&pAudmuxReg->Audmux_Pdcr5);
+  ExternalPdcr = (AUDMUX_PDCR_REG) MmioRead32 ((UINTN)&pAudmuxReg->Audmux_Pdcr4);
   ExternalPdcr.MODE = AUDMUX_NORMAL_MODE;
   ExternalPdcr.RXDSEL = SsiPortNumber;
   // According to the spec, ReceiveClockDirectionControl and
   // SynchronousAsynchronousSelect should never be changed at the same time.
-  MmioWrite32 ((UINTN)&pAudmuxReg->Audmux_Pdcr5, ExternalPdcr.AsUint32);
+  MmioWrite32 ((UINTN)&pAudmuxReg->Audmux_Pdcr4, ExternalPdcr.AsUint32);
   ExternalPdcr.TXRXEN = AUDMUX_TRSE_NOSWITCH;
-  MmioWrite32 ((UINTN)&pAudmuxReg->Audmux_Pdcr5, ExternalPdcr.AsUint32);
+  MmioWrite32 ((UINTN)&pAudmuxReg->Audmux_Pdcr4, ExternalPdcr.AsUint32);
 
-  ExternalPtcr = (AUDMUX_PTCR_REG) MmioRead32 ((UINTN)&pAudmuxReg->Audmux_Ptcr5);
+  ExternalPtcr = (AUDMUX_PTCR_REG) MmioRead32 ((UINTN)&pAudmuxReg->Audmux_Ptcr4);
   ExternalPtcr.TFS_DIR = AUDMUX_OUTPUT;
   ExternalPtcr.TFSEL = SsiPortNumber;
   ExternalPtcr.TCLKDIR = AUDMUX_OUTPUT;
@@ -55,7 +55,7 @@ InitializeAudmux (
   ExternalPtcr.RCLKDIR = AUDMUX_OUTPUT;
   ExternalPtcr.RCSEL = SsiPortNumber;
   ExternalPtcr.SYN = AUDMUX_SYNCHRONOUS_MODE;
-  MmioWrite32 ((UINTN)&pAudmuxReg->Audmux_Ptcr5, ExternalPtcr.AsUint32);
+  MmioWrite32 ((UINTN)&pAudmuxReg->Audmux_Ptcr4, ExternalPtcr.AsUint32);
 
   SsiPdcr = (AUDMUX_PDCR_REG) MmioRead32 ((UINTN)&pAudmuxReg->Audmux_Pdcr7);
   SsiPdcr.MODE = AUDMUX_NORMAL_MODE;

@@ -16,7 +16,7 @@
 
 Device (ACDK)
 {
-  Name (_HID, "SGTL5000")
+  Name (_HID, "VIA5000")
   Name (_UID, 0x0)
 
   Method (_STA) {
